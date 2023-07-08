@@ -3,6 +3,7 @@ package com.todolist.app.service;
 import com.todolist.app.model.User;
 import com.todolist.app.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +23,13 @@ public class UserService {
     }
 
     public ResponseEntity<User> createUser(User user){
-
+        User newUser = repository.save(user);
+        if(newUser != null){
+            return ResponseEntity.ok(user);
+        }
+        else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
 }

@@ -6,23 +6,24 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Table(name = "taskList")
 @Data
 public class TaskList {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Integer id;
-    @Column
+    @Column(nullable = false)
     private String title;
     @Column
     private String description;
     @Column
     private LocalDateTime created_at;
-
-    @ManyToOne
+    @ManyToOne()
     private User user;
-
     @OneToMany(mappedBy = "taskList",cascade = CascadeType.ALL)
     private List<Task> tasks;
 }

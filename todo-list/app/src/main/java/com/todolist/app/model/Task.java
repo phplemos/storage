@@ -11,11 +11,11 @@ import java.util.List;
 @Table(name = "task")
 @Data
 public class Task {
-
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Integer id;
     @Column
-
     private String title;
     @Column
     private String description;
