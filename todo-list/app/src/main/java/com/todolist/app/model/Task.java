@@ -1,9 +1,9 @@
 package com.todolist.app.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
-
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -15,7 +15,7 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
-    @Column
+    @Column(length = 50)
     private String title;
     @Column
     private String description;
@@ -27,7 +27,7 @@ public class Task {
     private boolean status;
     @Column
     private int priority;
-
+    @JsonIgnore
     @ManyToOne
     private TaskList taskList;
 

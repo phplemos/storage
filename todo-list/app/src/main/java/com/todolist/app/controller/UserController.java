@@ -1,5 +1,6 @@
 package com.todolist.app.controller;
 
+import com.todolist.app.components.FilterRequest;
 import com.todolist.app.model.User;
 import com.todolist.app.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,8 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserService userService;
+    @Autowired
+    private FilterRequest filter;
     public UserController(UserService userService) {
         this.userService = userService;
     }
@@ -35,6 +38,7 @@ public class UserController {
     @PostMapping
     public ResponseEntity<String> create(@RequestBody User user){
         ResponseEntity<User> newUser = userService.createUser(user);
+
         return ResponseEntity.status(newUser.getStatusCode()).build();
     }
 }
