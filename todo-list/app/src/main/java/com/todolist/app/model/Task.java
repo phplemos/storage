@@ -31,9 +31,4 @@ public class Task {
     @ManyToOne
     private TaskList taskList;
 
-    @ManyToMany
-    private List<Category> categories;
-
-    @OneToMany(mappedBy = "task", cascade = CascadeType.ALL)
-    private List<Comment> comments;
 }

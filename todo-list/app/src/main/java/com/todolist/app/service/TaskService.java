@@ -1,10 +1,7 @@
 package com.todolist.app.service;
 
-import com.todolist.app.model.Comment;
 import com.todolist.app.model.Task;
-import com.todolist.app.model.User;
 import com.todolist.app.repository.TaskRepository;
-import com.todolist.app.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
